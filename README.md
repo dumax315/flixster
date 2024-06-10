@@ -72,3 +72,9 @@ Add your response here
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+
+
+## Tasks
+| task name| time estimation | start time| endtime|
+|------|------|------|------|
+|Set the favicon|15 min| 402pm 6/10|||
