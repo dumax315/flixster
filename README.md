@@ -58,7 +58,7 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 Add your response here
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
-  
+
 Add your response here
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
