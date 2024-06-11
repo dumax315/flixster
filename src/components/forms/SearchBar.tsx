@@ -10,7 +10,7 @@ interface Props {
 const SearchBar = (props: Props) => {
     const [isSearching, setIsSearching] = useState<boolean>(false);
 
-    const handleOpenSearchClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    const handleOpenSearchClick = (): void => {
         setIsSearching(true);
     };
 
