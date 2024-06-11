@@ -13,23 +13,23 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 #### CORE FEATURES
 
 
-- [ ] **Display Movies**
-  - [ ] Users can view a list of current movies from The Movie Database API.
-  - [ ] For each movie displayed, users can see its title, poster image, and votes.
-  - [ ] Users can load more current movies by clicking a button at the bottom of the list (page should not be reloaded).
-- [ ] **Search Functionality**
-  - [ ] Users can search for movies and view the results in a grid.
-  - [ ] Users can clear results and view previous current movies displayed.
+- [x] **Display Movies**
+  - [x] Users can view a list of current movies from The Movie Database API.
+  - [x] For each movie displayed, users can see its title, poster image, and votes.
+  - [x] Users can load more current movies by clicking a button at the bottom of the list (page should not be reloaded).
+- [x] **Search Functionality**
+  - [x] Users can search for movies and view the results in a grid.
+  - [x] Users can clear results and view previous current movies displayed.
 - [ ] **Accessibility Features**
   - [ ] Website implements accessibility features (semantic HTML, color contrast, font sizing, alt text for images).
-- [ ] **Responsive Design**
-  - [ ] Website implements responsive web design.
-- [ ] **Movie Details**
-  - [ ] Users can view more details about a movie in a popup, such as runtime in minutes, backdrop poster, release date, genres, and/or an overview.
-- [ ] **Sorting Options**
-  - [ ] Users can click on a filter by drop down to sort product by type (alphabetic, release date, rating).
-- [ ] **Layout**
-  - [ ] Website displays header, banner, search, movie grid, about, contact, and footer section.
+- [x] **Responsive Design**
+  - [x] Website implements responsive web design.
+- [x] **Movie Details**
+  - [x] Users can view more details about a movie in a popup, such as runtime in minutes, backdrop poster, release date, genres, and/or an overview.
+- [x] **Sorting Options**
+  - [x] Users can click on a filter by drop down to sort product by type (alphabetic, release date, rating).
+- [x] **Layout**
+  - [x] Website displays header, banner, search, movie grid, about, contact, and footer section.
 
 #### STRETCH FEATURES
 
@@ -81,4 +81,10 @@ Give a shout out to somebody from your cohort that especially helped you during 
 |Switching Between "Now Playing" and Search Results|1 hour| 6:34pm |eod 6/10|
 |Switch from "next page" to load more" | 45 min | | <12pm 6/11|
 |Use serverless functions to querry db||||
-|add header and footer| 30 min| 1:09pm 6/11||
+|add header and footer| 30 min| 1:09pm 6/11| 2pm 6/11|
+|add filters||||
+|revamp the difference between seach and explore|1 hour|4:13||
+|Embedded Movie Trailer||||
+|Watched Checkbox||||
+|Favorite Button||||
+|Sidebar||||
