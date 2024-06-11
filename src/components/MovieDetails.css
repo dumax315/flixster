@@ -1,6 +1,6 @@
 /* TODO: find a better way to ensure margin on small screens */
 .MovieDetails {
-    max-width: 70vw;
+    max-width: calc(100% - 4em - 6px);
 }
 .flexContainer {
     display:block;

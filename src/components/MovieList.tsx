@@ -58,7 +58,7 @@ const MovieList = () => {
     }, [movieDBPageNumber, searchQuery, currentSort]);
 
     return (
-        <>
+        <div className='bodyContainer'>
             <h2>Movie List</h2>
             {searchQuery === '' ? <Dropdown currentValue={currentSort} handleValueChange={handleSortChange} /> : null}
             <SearchBar searchQuery={searchQuery} handleSearchChange={handleSearchChange} closeSearch={closeSearch} />
@@ -69,8 +69,8 @@ const MovieList = () => {
                     )
                 })}
             </div>
-            <button onClick={() => { setMovieDBPageNumber(movieDBPageNumber + 1) }}>Load More</button>
-        </>
+            <button className="loadMore" onClick={() => { setMovieDBPageNumber(movieDBPageNumber + 1) }}>Load More</button>
+        </div>
     )
 }
 

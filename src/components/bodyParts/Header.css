@@ -1,0 +1,9 @@
+header {
+    background-color: var(--darkAccent);
+    padding: 1em;
+    text-align: center;
+}
+
+h1 {
+    margin: 0px;
+}
