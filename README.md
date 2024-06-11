@@ -77,4 +77,8 @@ Give a shout out to somebody from your cohort that especially helped you during 
 ## Tasks
 | task name| time estimation | start time| endtime|
 |------|------|------|------|
-|Set the favicon|15 min| 402pm 6/10|||
+|Set the favicon|15 min| 402pm 6/10|<6:00pm 6/10||
+|Switching Between "Now Playing" and Search Results|1 hour| 6:34pm |eod 6/10|
+|Switch from "next page" to load more" | 45 min | | <12pm 6/11|
+|Use serverless functions to querry db||||
+|add header and footer| 30 min| 1:09pm 6/11||

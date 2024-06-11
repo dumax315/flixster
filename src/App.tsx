@@ -1,9 +1,13 @@
 import './App.css'
+import MovieList from './components/MovieList'
 
 function App() {
   return (
     <>
-      <h1>Flisker</h1>
+      <header>
+        <h1>Flisker</h1>
+      </header>
+      <MovieList />
     </>
   )
 }
