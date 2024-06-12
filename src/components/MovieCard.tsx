@@ -8,9 +8,10 @@ interface Props {
     toggleUserData: (playlist_id: number, add: boolean, userDataList: UserDataKey) => void;
     liked: boolean,
     watched: boolean,
+    alwaysShowLike: boolean
 }
 
-const MovieCard = ({ movie, toggleUserData, liked, watched }: Props) => {
+const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike=false }: Props) => {
     const [isMovieDetailsOpen, setIsMovieDetailsOpen] = useState<boolean>(false);
     // if null set to false (that is what ?? does)
 
@@ -46,7 +47,7 @@ const MovieCard = ({ movie, toggleUserData, liked, watched }: Props) => {
                 <div className='MovieRatingCircle'>
                     <p className='MovieRating'>{movie.vote_average.toFixed(1)}</p>
                 </div>
-                <div className='togglelistButtons'>
+                <div className={'togglelistButtons ' + (alwaysShowLike ? "showButtonsAlways":"")}>
                     <button onClickCapture={toggleLiked}>{liked ? "unlike" : "like"}</button>
                     <button onClickCapture={toggleWatched}>{watched ? "unwatched" : "watched"}</button>
                 </div>

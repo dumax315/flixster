@@ -16,3 +16,8 @@
 .sideBarButton.preload {
     left: 15px;
 }
+
+.twoColumnSideBarList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

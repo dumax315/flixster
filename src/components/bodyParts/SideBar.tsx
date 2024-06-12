@@ -68,12 +68,12 @@ const SideBar = ({ isOpen, userData, toggleUserData }: Props) => {
     return (
         <aside className={'sideBar ' + (isOpen ? "" : "preload")}>
             <h2 className='sideBarTitle'>Liked and Watched movies</h2>
-            <ul>
+            <ul className='twoColumnSideBarList'>
             {sideBarMovies.map(function (movie, i) {
                     // set the liked and watched values to true or false based on the saved Userdata if they are not set
 
                     return (
-                        <MovieCard liked={userData!.likedMovies.includes(movie.id)} watched={userData!.watchedMovies.includes(movie.id)} toggleUserData={toggleUserData} movie={movie} key={"sideBarCard"+i} />
+                        <MovieCard alwaysShowLike={true} liked={userData!.likedMovies.includes(movie.id)} watched={userData!.watchedMovies.includes(movie.id)} toggleUserData={toggleUserData} movie={movie} key={"sideBarCard"+i} />
                     )
                 })}
             </ul>
