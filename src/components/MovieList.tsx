@@ -56,7 +56,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         setLoading(false);
     }
 
-    const storeUserDataLocalStorage = async (userDataTemp:UserData) => {
+    const storeUserDataLocalStorage = (userDataTemp:UserData) => {
         localStorage.setItem('userData', JSON.stringify(userDataTemp));
     }
 
@@ -72,8 +72,8 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         else {
             userDataTemp[userDataList].splice(userDataTemp[userDataList].indexOf(movie_id), 1)
         }
-        setUserData(userDataTemp);
         storeUserDataLocalStorage(userDataTemp);
+        setUserData(userDataTemp);
     }
 
     /**
