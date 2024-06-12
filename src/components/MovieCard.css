@@ -1,17 +1,37 @@
 .MovieCard {
     position: relative;
-    cursor: pointer
+    cursor: pointer;
+    transition: filter .6s;
 }
-.MoviePoster{
+
+.MovieCard:hover {
+    filter: drop-shadow(0 0 0.75rem crimson);
+}
+
+.MoviePoster {
     width: calc(100% - 1em);
     padding: .5em;
     padding-top: 0em;
-    padding-bottom: 2em;
-    transition: padding .5s, width .5s;
+    padding-bottom: 0em;
+    transition:  padding .5s, width .5s;
+
 }
-.MovieCard:hover .MoviePoster{
+
+.MovieCard:hover .MoviePoster {
     width: 100%;
     padding: 0px;
+}
+
+.MovieTitle {
+    margin: 0px;
+    text-align: center;
+    margin-bottom: 1.5em;
+    transition: margin .5s;
+
+}
+
+.MovieCard:hover .MovieTitle {
+    margin-bottom: 0em;
 }
 
 .MovieRating {
