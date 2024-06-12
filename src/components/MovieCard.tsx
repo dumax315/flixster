@@ -8,7 +8,7 @@ interface Props {
     toggleUserData: (playlist_id: number, add: boolean, userDataList: UserDataKey) => void;
     liked: boolean,
     watched: boolean,
-    alwaysShowLike: boolean
+    alwaysShowLike?: boolean
 }
 
 const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike=false }: Props) => {
