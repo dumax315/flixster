@@ -2,11 +2,11 @@
 
 ## Unit Assignment: Flixster
 
-Submitted by: **NAME**
+Submitted by: **Theo**
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: **20** hours spent in total
 
-Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
+Deployed Application (optional): [Flixster Deployed Site](https://flixster-ctfr.onrender.com/)
 
 ### Application Features
 
@@ -20,8 +20,8 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 - [x] **Search Functionality**
   - [x] Users can search for movies and view the results in a grid.
   - [x] Users can clear results and view previous current movies displayed.
-- [ ] **Accessibility Features**
-  - [ ] Website implements accessibility features (semantic HTML, color contrast, font sizing, alt text for images).
+- [x] **Accessibility Features**
+  - [x] Website implements accessibility features (semantic HTML, color contrast, font sizing, alt text for images).
 - [x] **Responsive Design**
   - [x] Website implements responsive web design.
 - [x] **Movie Details**
@@ -33,14 +33,14 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 #### STRETCH FEATURES
 
-- [ ] **Deployment**
-  - [ ] Website is deployed via Render.
-- [ ] **Embedded Movie Trailers**
-  - [ ] Within the popup displaying a movie's details, users can play the movie trailer.
-- [ ] **Watched Checkbox**
-  - [ ] For each movie displayed, users can mark the movie as watched.
-- [ ] **Favorite Button**
-  - [ ] For each movie displayed, users can favorite the movie.
+- [x] **Deployment**
+  - [x] Website is deployed via Render.
+- [x] **Embedded Movie Trailers**
+  - [x] Within the popup displaying a movie's details, users can play the movie trailer.
+- [x] **Watched Checkbox**
+  - [x] For each movie displayed, users can mark the movie as watched.
+- [x] **Favorite Button**
+  - [x] For each movie displayed, users can favorite the movie.
 - [ ] **Sidebar**
   - [ ] Users can open a sidebar
   - [ ] The sidebar displays the user's favorited and watched movies
