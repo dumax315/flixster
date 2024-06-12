@@ -34,14 +34,24 @@
     margin-bottom: 0em;
 }
 
-.MovieRating {
+.MovieRatingCircle {
     border-radius: 100%;
     background: #121212;
     position: absolute;
     margin: 0px;
     top: -5px;
     right: -5px;
-    padding: 1em;
+    width: 3em;
+    height: 3em;
+}
+
+/* modified from https://www.w3schools.com/css/css_align.asp Center Vertically - Using position & transform */
+.MovieRating{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0px;
 }
 
 .togglelistButtons {

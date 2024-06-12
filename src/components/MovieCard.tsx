@@ -45,7 +45,9 @@ const MovieCard = ({ movie, toggleUserData }: Props) => {
             <div className="MovieCard" onClick={openMovieDetails}>
                 <img draggable="false" className='MoviePoster' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} />
                 <p className='MovieTitle'>{movie.title}</p>
-                <p className='MovieRating'>{movie.vote_average.toFixed(1)}</p>
+                <div className='MovieRatingCircle'>
+                    <p className='MovieRating'>{movie.vote_average.toFixed(1)}</p>
+                </div>
                 <div className='togglelistButtons'>
                     <button onClickCapture={toggleLiked}>{liked ? "unlike" : "like"}</button>
                     <button onClickCapture={toggleWatched}>{watched ? "unwatched" : "watched"}</button>
