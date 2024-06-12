@@ -56,8 +56,8 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         setLoading(false);
     }
 
-    const storeUserDataLocalStorage = async () => {
-        localStorage.setItem('userData', JSON.stringify(userData));
+    const storeUserDataLocalStorage = async (userDataTemp:UserData) => {
+        localStorage.setItem('userData', JSON.stringify(userDataTemp));
     }
 
     const toggleUserData = async (movie_id: number, add: boolean, userDataList: UserDataKey) => {
@@ -72,8 +72,8 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         else {
             userDataTemp[userDataList].splice(userDataTemp[userDataList].indexOf(movie_id), 1)
         }
-        await setUserData(userDataTemp);
-        storeUserDataLocalStorage();
+        setUserData(userDataTemp);
+        storeUserDataLocalStorage(userDataTemp);
     }
 
     /**
@@ -104,7 +104,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
 
     return (
         <main className='bodyContainer'>
-            <SideBarButton onClick={toggleSideBarOpen} />
+            <SideBarButton isOpen={sidebarOpen} onClick={toggleSideBarOpen} />
             <SideBar isOpen={sidebarOpen}/>
             <section className="movieList">
                 {moviesJSON.map(function (movie, i) {
