@@ -34,15 +34,19 @@ const FiltersAndSearch = ({ isSearching, setIsSearching, searchQuery, setSearchQ
     if (isSearching) {
         return (
             <nav className='filtersAndSearch'>
-                <SearchBar handleSearchChange={handleSearchChange} searchQuery={searchQuery}/>
-                <button onClick={closeSearch}>Back to Explore</button>
+                <div>
+                    <SearchBar handleSearchChange={handleSearchChange} searchQuery={searchQuery}/>
+                    <button className="navButton" onClick={closeSearch}>Back to Explore</button>
+                </div>
             </nav>
         )
     } else {
         return (
             <nav className='filtersAndSearch'>
-                <Dropdown currentValue={currentSort} handleValueChange={handleSortChange} />
-                <button onClick={openSearch}>Go to Search</button>
+                <div>
+                    <Dropdown currentValue={currentSort} handleValueChange={handleSortChange} />
+                    <button className="navButton" onClick={openSearch}>Go to Search</button>
+                </div>
             </nav>
         )
     }

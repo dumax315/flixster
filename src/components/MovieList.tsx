@@ -41,6 +41,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
                 accept: 'application/json',
             }
         };
+
         // Clears the page if the query has changed (instead of new page)
         if (movieDBPageNumber == 1) {
             setMoviesJSON([])
@@ -49,11 +50,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         const response = await fetch(url, options);
         const data = await response.json();
         if (movieDBPageNumber > 1) {
-            setMoviesJSON((prev) => {
-                let newMovies = [...prev];
-                newMovies.concat(data.results)
-                return newMovies;
-            });
+            setMoviesJSON((prev) => {return [...prev, ...data.results]});
         } else {
             setMoviesJSON(data.results);
         }
@@ -88,7 +85,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
      * Opens and closes the sidebar when SideBarButton is clicked
      */
     const toggleSideBarOpen = () => {
-        setSidebarOpen((prev)=> !prev);
+        setSidebarOpen((prev) => !prev);
     }
 
     useEffect(() => {
@@ -113,19 +110,22 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         <main className='bodyContainer'>
             <SideBarButton isOpen={sidebarOpen} onClick={toggleSideBarOpen} />
             <SideBar toggleUserData={toggleUserData} userData={userData} isOpen={sidebarOpen} />
-            <section className="movieList">
-                {moviesJSON.map(function (movie, i) {
-                    // set the liked and watched values to true or false based on the saved Userdata if they are not set
+            <div className='movieListContainer'>
+                <section className="movieList">
+                    {moviesJSON.map(function (movie, i) {
+                        // set the liked and watched values to true or false based on the saved Userdata if they are not set
 
-                    return (
-                        <MovieCard liked={userData.likedMovies.includes(movie.id)} watched={userData.watchedMovies.includes(movie.id)} toggleUserData={toggleUserData} movie={movie} key={i} />
-                    )
-                })}
+                        return (
+                            <MovieCard liked={userData.likedMovies.includes(movie.id)} watched={userData.watchedMovies.includes(movie.id)} toggleUserData={toggleUserData} movie={movie} key={i} />
+                        )
+                    })}
+                </section>
                 {loading ? <div className="loading">Loading...</div> : null}
                 {/* increments the page number when load More is clicked */}
                 {/* maybe this should be new function call incrementmoviedb */}
                 <button className="loadMore" onClick={() => { setMovieDBPageNumber(movieDBPageNumber + 1) }}>Load More</button>
-            </section>
+            </div>
+
 
         </main>
     )
