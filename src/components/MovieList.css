@@ -8,9 +8,11 @@
     gap: 1em;
     grid-template-columns: repeat(auto-fill, minmax(180px, 2fr));
     max-width: 1000px;
-    margin-left: 1em;
-    margin-right: 1em;
+    /* TODO invistagate why these were needed */
+    /* margin-left: 1em;
+    margin-right: 1em; */
     margin: auto;
+    margin-top: 0px;
     min-width: 0;
 }
 
