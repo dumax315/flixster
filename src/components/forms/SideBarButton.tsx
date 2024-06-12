@@ -9,7 +9,7 @@ const SideBarButton = ({ onClick, isOpen }: Props) => {
 
     return (
         <button onClick={onClick} className={'sideBarButton ' + (isOpen?"":"preload")}>
-            <img className="sideBarButtonImg" src="public/bars-solid.svg" alt="Bars"></img>
+            <img className="sideBarButtonImg" src="/bars-solid.svg" alt="Bars"></img>
         </button>
     )
 }
