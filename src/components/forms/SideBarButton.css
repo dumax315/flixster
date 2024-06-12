@@ -5,6 +5,8 @@
     position: absolute;
     z-index: 1;
     left: 300px;
+    background-color: #7f7f7fb3;
+    border-radius: 3px;
 }
 .sideBarButtonImg {
     width: 1.5em;
