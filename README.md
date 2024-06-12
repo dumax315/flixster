@@ -41,9 +41,9 @@ Deployed Application (optional): [Flixster Deployed Site](https://flixster-ctfr.
   - [x] For each movie displayed, users can mark the movie as watched.
 - [x] **Favorite Button**
   - [x] For each movie displayed, users can favorite the movie.
-- [ ] **Sidebar**
-  - [ ] Users can open a sidebar
-  - [ ] The sidebar displays the user's favorited and watched movies
+- [x] **Sidebar**
+  - [x] Users can open a sidebar
+  - [x] The sidebar displays the user's favorited and watched movies
 
 ### Walkthrough Video
 
@@ -85,7 +85,7 @@ Give a shout out to somebody from your cohort that especially helped you during 
 |Embedded Movie Trailer|30 min |5:30 6/11|6:37 |
 |Watched Checkbox|1 hour|6:40 pm 6/11|8:25||
 |Favorite Button|||see above|
-|Sidebar||||
+|Sidebar|2 hours| 7:40am 6/12|1:39 pm 6/12|
 |add filters||||
 |Use serverless functions to querry db||||
 |swithc like and watched buttons to imgs||||
@@ -98,3 +98,4 @@ Give a shout out to somebody from your cohort that especially helped you during 
 | evaulate whether liked and watched should remain properties of Movie||||
 |style filterAndSearch||||
 |move dialog close button and make bg clickable||||
+|replace setStates that use the state with fucitions that have prev||||

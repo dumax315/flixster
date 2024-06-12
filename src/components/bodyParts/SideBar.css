@@ -1,0 +1,25 @@
+.sideBar {
+    min-width: 350px;
+    width: 0px;
+    background: burlywood;
+    margin-top: -1em;
+    margin-left: -1em;
+    margin-right: 1em;
+    transition: min-width .3s;
+    overflow:hidden;
+}
+
+.preload.sideBar {
+    min-width:0px;
+}
+
+.sideBarTitle {
+    width:350px;
+    margin-left: 1em;
+}
+
+ul {
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+  }

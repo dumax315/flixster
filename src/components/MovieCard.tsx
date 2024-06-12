@@ -6,13 +6,14 @@ import { useState } from 'react';
 interface Props {
     movie: Movie,
     toggleUserData: (playlist_id: number, add: boolean, userDataList: UserDataKey) => void;
+    liked: boolean,
+    watched: boolean,
+    alwaysShowLike: boolean
 }
 
-const MovieCard = ({ movie, toggleUserData }: Props) => {
+const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike=false }: Props) => {
     const [isMovieDetailsOpen, setIsMovieDetailsOpen] = useState<boolean>(false);
     // if null set to false (that is what ?? does)
-    const [liked, setLiked] = useState<boolean>(movie.liked ?? false);
-    const [watched, setWatched] = useState<boolean>(movie.watched ?? false);
 
 
     const openMovieDetails = () => {
@@ -27,17 +28,15 @@ const MovieCard = ({ movie, toggleUserData }: Props) => {
     const toggleLiked = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         // stop propagation so that the card doesn't get clicked
         event.stopPropagation();
-        movie.liked = !movie.liked;
-        setLiked(movie.liked);
-        toggleUserData(movie.id, movie.liked, "likedMovies")
+        // movie.liked = !movie.liked;
+        toggleUserData(movie.id, !liked, "likedMovies")
     }
 
     const toggleWatched = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         // stop propagation so that the card doesn't get clicked
         event.stopPropagation();
-        movie.watched = !movie.watched;
-        setWatched(movie.watched);
-        toggleUserData(movie.id, movie.watched, "watchedMovies")
+        // movie.watched = !movie.watched;
+        toggleUserData(movie.id, !watched, "watchedMovies")
     }
 
     return (
@@ -48,7 +47,7 @@ const MovieCard = ({ movie, toggleUserData }: Props) => {
                 <div className='MovieRatingCircle'>
                     <p className='MovieRating'>{movie.vote_average.toFixed(1)}</p>
                 </div>
-                <div className='togglelistButtons'>
+                <div className={'togglelistButtons ' + (alwaysShowLike ? "showButtonsAlways":"")}>
                     <button onClickCapture={toggleLiked}>{liked ? "unlike" : "like"}</button>
                     <button onClickCapture={toggleWatched}>{watched ? "unwatched" : "watched"}</button>
                 </div>

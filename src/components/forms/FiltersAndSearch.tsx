@@ -33,14 +33,14 @@ const FiltersAndSearch = ({ isSearching, setIsSearching, searchQuery, setSearchQ
     // TODO add closing animation
     if (isSearching) {
         return (
-            <nav>
+            <nav className='filtersAndSearch'>
                 <SearchBar handleSearchChange={handleSearchChange} searchQuery={searchQuery}/>
                 <button onClick={closeSearch}>Back to Explore</button>
             </nav>
         )
     } else {
         return (
-            <nav>
+            <nav className='filtersAndSearch'>
                 <Dropdown currentValue={currentSort} handleValueChange={handleSortChange} />
                 <button onClick={openSearch}>Go to Search</button>
             </nav>

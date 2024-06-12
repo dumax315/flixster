@@ -2,6 +2,8 @@ import './MovieList.css'
 import MovieCard from './MovieCard'
 import { useEffect, useState } from 'react';
 import { Movie, UserData, UserDataKey } from './../types';
+import SideBarButton from './forms/SideBarButton';
+import SideBar from './bodyParts/SideBar';
 
 interface Props {
     searchQuery: string,
@@ -13,7 +15,8 @@ interface Props {
 const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPageNumber }: Props) => {
     const [moviesJSON, setMoviesJSON] = useState<Movie[]>([]);
     const [loading, setLoading] = useState(true);
-    const [userData, setUserData] = useState<UserData>();
+    const [userData, setUserData] = useState<UserData>({ likedMovies: [], watchedMovies: [] });
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     /**
      * Loads the movies from the MovieDB API, based on the current search query and the current sort
@@ -46,37 +49,51 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         const response = await fetch(url, options);
         const data = await response.json();
         if (movieDBPageNumber > 1) {
-            setMoviesJSON(moviesJSON.concat(data.results));
+            setMoviesJSON((prev) => {
+                let newMovies = [...prev];
+                newMovies.concat(data.results)
+                return newMovies;
+            });
         } else {
             setMoviesJSON(data.results);
         }
         setLoading(false);
     }
 
-    const storeUserDataLocalStorage = async () => {
-        localStorage.setItem('userData', JSON.stringify(userData));
+    const storeUserDataLocalStorage = async (userDataTemp: UserData) => {
+        localStorage.setItem('userData', JSON.stringify(userDataTemp));
     }
 
-    const toggleUserData = async (movie_id: number, add: boolean, userDataList: UserDataKey) => {
+    const toggleUserData = (movie_id: number, add: boolean, userDataList: UserDataKey) => {
 
         if (userData == undefined) {
             return;
         }
-        let userDataTemp: UserData = userData;
-        if (add) {
-            userDataTemp[userDataList].push(movie_id);
-        }
-        else {
-            userDataTemp[userDataList].splice(userDataTemp[userDataList].indexOf(movie_id), 1)
-        }
-        await setUserData(userDataTemp);
-        storeUserDataLocalStorage();
+        setUserData((prev) => {
+            const userDataTemp = { ...prev };
+
+            if (add) {
+                userDataTemp[userDataList].push(movie_id);
+            }
+            else {
+                userDataTemp[userDataList].splice(userDataTemp[userDataList].indexOf(movie_id), 1)
+            }
+
+            storeUserDataLocalStorage(userDataTemp);
+            return userDataTemp
+        });
+    }
+
+    /**
+     * Opens and closes the sidebar when SideBarButton is clicked
+     */
+    const toggleSideBarOpen = () => {
+        setSidebarOpen((prev)=> !prev);
     }
 
     useEffect(() => {
         loadMovies();
     }, [movieDBPageNumber, searchQuery, currentSort]);
-
     /**
      * On page load checks for userData in local storage,
      * Creates empty userData if it does not exist or if it does exist, sets the userData to the JSON.parsed local storage value
@@ -94,33 +111,22 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
 
     return (
         <main className='bodyContainer'>
+            <SideBarButton isOpen={sidebarOpen} onClick={toggleSideBarOpen} />
+            <SideBar toggleUserData={toggleUserData} userData={userData} isOpen={sidebarOpen} />
             <section className="movieList">
-
                 {moviesJSON.map(function (movie, i) {
                     // set the liked and watched values to true or false based on the saved Userdata if they are not set
-                    if (movie.liked == null) {
-                        if (userData?.likedMovies.includes(movie.id)) {
-                            movie.liked = true;
-                        } else {
-                            movie.liked = false;
-                        }
-                    }
-                    if (movie.watched == null) {
-                        if (userData?.watchedMovies.includes(movie.id)) {
-                            movie.watched = true;
-                        } else {
-                            movie.liked = false;
-                        }
-                    }
 
                     return (
-                        <MovieCard toggleUserData={toggleUserData} movie={movie} key={i} />
+                        <MovieCard liked={userData.likedMovies.includes(movie.id)} watched={userData.watchedMovies.includes(movie.id)} toggleUserData={toggleUserData} movie={movie} key={i} />
                     )
                 })}
                 {loading ? <div className="loading">Loading...</div> : null}
+                {/* increments the page number when load More is clicked */}
+                {/* maybe this should be new function call incrementmoviedb */}
+                <button className="loadMore" onClick={() => { setMovieDBPageNumber(movieDBPageNumber + 1) }}>Load More</button>
             </section>
-            {/* increments the page number when load More is clicked */}
-            <button className="loadMore" onClick={() => { setMovieDBPageNumber(movieDBPageNumber + 1) }}>Load More</button>
+
         </main>
     )
 }

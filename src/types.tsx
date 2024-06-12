@@ -1,5 +1,4 @@
 /** Movie type based on the response data from themoviedb.org,
- * watched and liked are added during render and are not part of the response.
  */
 export interface Movie {
     adult: boolean,
@@ -16,8 +15,6 @@ export interface Movie {
     video: boolean,
     vote_average: number,
     vote_count: number,
-    watched?: boolean,
-    liked?: boolean,
 }
 
 /** Ensure type safety for the Genres object below */
