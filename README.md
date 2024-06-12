@@ -98,3 +98,4 @@ Give a shout out to somebody from your cohort that especially helped you during 
 | evaulate whether liked and watched should remain properties of Movie||||
 |style filterAndSearch||||
 |move dialog close button and make bg clickable||||
+|replace setStates that use the state with fucitions that have prev||||
