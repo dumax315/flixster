@@ -1,7 +1,7 @@
 import './MovieCard.css'
 import { Movie, UserDataKey } from './../types';
 import MovieDetails from './MovieDetails'
-import { ButtonHTMLAttributes, useEffect, useState } from 'react';
+import { useState } from 'react';
 
 interface Props {
     movie: Movie,
