@@ -14,12 +14,15 @@ function App() {
 
   // handler functions for the FiltersAndSearch
   const handlerSearchSwitch = (isSearchingData: boolean) => {
+    setMovieDBPageNumber(1)
     setIsSearching(isSearchingData)
   }
   const handleSetSearchQuery = (searchQueryData: string) => {
+    setMovieDBPageNumber(1)
     setSearchQuery(searchQueryData)
   }
   const handleSetCurrentSort = (currentSortData: string) => {
+    setMovieDBPageNumber(1)
     setCurrentSort(currentSortData)
   }
 

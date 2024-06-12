@@ -83,7 +83,7 @@ Give a shout out to somebody from your cohort that especially helped you during 
 |Use serverless functions to querry db||||
 |add header and footer| 30 min| 1:09pm 6/11| 2pm 6/11|
 |add filters||||
-|revamp the difference between seach and explore|1 hour|4:13||
+|revamp the difference between seach and explore|1 hour|4:13|5:06 6/11|
 |Embedded Movie Trailer||||
 |Watched Checkbox||||
 |Favorite Button||||
