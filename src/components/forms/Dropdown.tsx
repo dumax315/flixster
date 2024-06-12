@@ -11,7 +11,7 @@ const Dropdown = (props: Props) => {
     return (
         <>
 
-            <select value={props.currentValue} onChange={props.handleValueChange}>
+            <select className="dropdown" value={props.currentValue} onChange={props.handleValueChange}>
                 <option value="original_title.asc">original_title.asc</option>
                 <option value="original_title.desc">original_title.desc</option>
                 {/* <option value="popularity.asc">popularity.asc</option> */}

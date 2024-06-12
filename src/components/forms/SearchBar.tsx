@@ -18,7 +18,7 @@ const SearchBar = ({searchQuery, handleSearchChange}: Props) => {
 
     return (
         <>
-            <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search" />
+            <input className="searchBar" type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search" />
         </>
     )
 
