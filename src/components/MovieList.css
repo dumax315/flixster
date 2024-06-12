@@ -1,6 +1,8 @@
 .bodyContainer {
     padding: 1em;
+    display: flex;
 }
+
 .movieList {
     display: grid;
     gap: 1em;
@@ -8,11 +10,24 @@
     max-width: 1000px;
     margin-left: 1em;
     margin-right: 1em;
-    margin:auto;
+    margin: auto;
+    min-width: 0;
 }
 
 /* Ensures that the footer doesn't cover up content */
 /* TODO: invistage a better way to do this */
 .loadMore {
     margin-bottom: 7em;
+}
+
+/* Make the side bar and content stack if the page is small */
+@media only screen and (max-width: 580px) {
+    .bodyContainer {
+        display: block;
+    }
+    /* Important is used so that the media querry can live only in this file */
+    .sideBar {
+        margin: 0px !important;
+        min-width: unset !important;
+    }
 }

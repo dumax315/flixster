@@ -85,7 +85,7 @@ Give a shout out to somebody from your cohort that especially helped you during 
 |Embedded Movie Trailer|30 min |5:30 6/11|6:37 |
 |Watched Checkbox|1 hour|6:40 pm 6/11|8:25||
 |Favorite Button|||see above|
-|Sidebar||||
+|Sidebar|2 hours| 7:40am 6/12||
 |add filters||||
 |Use serverless functions to querry db||||
 |swithc like and watched buttons to imgs||||

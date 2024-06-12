@@ -1,0 +1,18 @@
+.sideBar {
+    min-width: 350px;
+    width: 0px;
+    background: burlywood;
+    margin-top: -1em;
+    margin-left: -1em;
+    margin-right: 1em;
+    transition: min-width .3s;
+    overflow:hidden;
+}
+
+.preload {
+    min-width:0px;
+}
+
+.sideBarTitle {
+    width:350px;
+}

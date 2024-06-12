@@ -1,0 +1,13 @@
+.sideBarButton {
+    background: none;
+    border: none;
+    transition: transform .2s;
+    position: absolute;
+    z-index: 1;
+}
+.sideBarButtonImg {
+    width: 1.5em;
+}
+.sideBarButton:active {
+    transform: translate(10%, 10%);
+}

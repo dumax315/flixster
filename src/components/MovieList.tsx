@@ -2,6 +2,8 @@ import './MovieList.css'
 import MovieCard from './MovieCard'
 import { useEffect, useState } from 'react';
 import { Movie, UserData, UserDataKey } from './../types';
+import SideBarButton from './forms/SideBarButton';
+import SideBar from './bodyParts/SideBar';
 
 interface Props {
     searchQuery: string,
@@ -14,6 +16,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
     const [moviesJSON, setMoviesJSON] = useState<Movie[]>([]);
     const [loading, setLoading] = useState(true);
     const [userData, setUserData] = useState<UserData>();
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     /**
      * Loads the movies from the MovieDB API, based on the current search query and the current sort
@@ -73,6 +76,13 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         storeUserDataLocalStorage();
     }
 
+    /**
+     * Opens and closes the sidebar when SideBarButton is clicked
+     */
+    const toggleSideBarOpen = () => {
+        setSidebarOpen(!sidebarOpen);
+    }
+
     useEffect(() => {
         loadMovies();
     }, [movieDBPageNumber, searchQuery, currentSort]);
@@ -94,8 +104,9 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
 
     return (
         <main className='bodyContainer'>
+            <SideBarButton onClick={toggleSideBarOpen} />
+            <SideBar isOpen={sidebarOpen}/>
             <section className="movieList">
-
                 {moviesJSON.map(function (movie, i) {
                     // set the liked and watched values to true or false based on the saved Userdata if they are not set
                     if (movie.liked == null) {
@@ -118,9 +129,10 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
                     )
                 })}
                 {loading ? <div className="loading">Loading...</div> : null}
+                {/* increments the page number when load More is clicked */}
+                <button className="loadMore" onClick={() => { setMovieDBPageNumber(movieDBPageNumber + 1) }}>Load More</button>
             </section>
-            {/* increments the page number when load More is clicked */}
-            <button className="loadMore" onClick={() => { setMovieDBPageNumber(movieDBPageNumber + 1) }}>Load More</button>
+
         </main>
     )
 }
