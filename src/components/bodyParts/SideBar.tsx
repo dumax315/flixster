@@ -19,7 +19,6 @@ const SideBar = ({ isOpen, userData, toggleUserData }: Props) => {
         }
         let tempSideBarMovies:Movie[] = [...sideBarMovies];
         tempSideBarMovies = tempSideBarMovies.filter((item:Movie) => {
-            console.log(item.id);
             return (userData.likedMovies.includes(item.id)) || (userData.watchedMovies.includes(item.id))
         });
 
@@ -27,10 +26,8 @@ const SideBar = ({ isOpen, userData, toggleUserData }: Props) => {
         for(let currentList = 0; currentList < lists.length; currentList++) {
             for(let i = 0; i < userData[lists[currentList]].length; i++) {
                 let movieIndex = tempSideBarMovies.findIndex((item:Movie) => {
-                    console.log(userData[lists[currentList]][i] +" == "+ item.id)
                     return userData[lists[currentList]][i] == item.id;
                 });
-                console.log(movieIndex);
                 if(movieIndex == -1){
                     let url = "https://api.themoviedb.org/3/movie/";
                     url += userData[lists[currentList]][i];
@@ -53,7 +50,6 @@ const SideBar = ({ isOpen, userData, toggleUserData }: Props) => {
                     movieIndex = tempSideBarMovies.length-1;
                     // console.log(data);
                 }
-                console.log(movieIndex);
 
             }
 

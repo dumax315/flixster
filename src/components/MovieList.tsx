@@ -80,9 +80,6 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
             }
 
             storeUserDataLocalStorage(userDataTemp);
-
-
-            console.log(`${add ? 'Added' : 'Removed'} ${movie_id} from ${userDataList}`)
             return userDataTemp
         });
     }
@@ -97,12 +94,6 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
     useEffect(() => {
         loadMovies();
     }, [movieDBPageNumber, searchQuery, currentSort]);
-
-    useEffect(() => {
-        console.log('userData:')
-        console.table(userData)
-    }, [userData]);
-
     /**
      * On page load checks for userData in local storage,
      * Creates empty userData if it does not exist or if it does exist, sets the userData to the JSON.parsed local storage value
