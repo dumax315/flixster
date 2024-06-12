@@ -10,7 +10,7 @@ interface Props {
 
 const MovieCard = ({ movie, toggleUserData }: Props) => {
     const [isMovieDetailsOpen, setIsMovieDetailsOpen] = useState<boolean>(false);
-    // if null set to false (??)
+    // if null set to false (that is what ?? does)
     const [liked, setLiked] = useState<boolean>(movie.liked ?? false);
     const [watched, setWatched] = useState<boolean>(movie.watched ?? false);
 

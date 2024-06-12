@@ -1,6 +1,4 @@
 import './Header.css'
-// interface Props {
-// }
 
 const Header = () => {
 
