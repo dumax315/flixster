@@ -1,18 +1,19 @@
 import './MovieList.css'
 import MovieCard from './MovieCard'
 import { useEffect, useState } from 'react';
-import { Movie } from './../types';
+import { Movie, UserData, UserDataKey } from './../types';
 
 interface Props {
     searchQuery: string,
     currentSort: string,
     movieDBPageNumber: number,
-    setMovieDBPageNumber: (pageNumber:number) => void,
+    setMovieDBPageNumber: (pageNumber: number) => void,
 }
 
 const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPageNumber }: Props) => {
     const [moviesJSON, setMoviesJSON] = useState<Movie[]>([]);
     const [loading, setLoading] = useState(true);
+    const [userData, setUserData] = useState<UserData>();
 
     const loadMovies = async () => {
         setLoading(true)
@@ -33,7 +34,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
             }
         };
         // Clears the page if the query has changed (instead of new page)
-        if(movieDBPageNumber == 1) {
+        if (movieDBPageNumber == 1) {
             setMoviesJSON([])
         }
 
@@ -48,9 +49,40 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         setLoading(false)
     }
 
+    const storeUserDataLocalStorage = async () => {
+        localStorage.setItem('userData', JSON.stringify(userData));
+    }
+
+    const toggleUserData = async (movie_id: number, add: boolean, userDataList: UserDataKey) => {
+
+        if(userData == undefined){
+            return;
+        }
+        let userDataTemp:UserData = userData;
+        if (add) {
+            userDataTemp[userDataList].push(movie_id);
+        }
+        else{
+            userDataTemp[userDataList].splice(userDataTemp[userDataList].indexOf(movie_id), 1)
+        }
+        await setUserData(userDataTemp);
+        storeUserDataLocalStorage();
+    }
+
     useEffect(() => {
         loadMovies();
     }, [movieDBPageNumber, searchQuery, currentSort]);
+
+    useEffect(() => {
+        if(localStorage.getItem("userData") == undefined) {
+            setUserData({
+                likedMovies:[],
+                watchedMovies:[],
+            })
+        }else{
+            setUserData(JSON.parse(localStorage.userData));
+        }
+    }, [])
 
     return (
         <div className='bodyContainer'>
@@ -58,8 +90,23 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
             <div className="movieList">
 
                 {moviesJSON.map(function (movie, i) {
+                    // set the liked and watched values to true or false based on the saved Userdata if they are not set
+                    if (movie.liked == null){
+                        if(userData?.likedMovies.includes(movie.id)){
+                            movie.liked = true;
+                        }else{
+                            movie.liked = false;
+                        }
+                    }
+                    if (movie.watched == null){
+                        if(userData?.watchedMovies.includes(movie.id)){
+                            movie.watched = true;
+                        }else{
+                            movie.liked = false;
+                        }
+                    }
                     return (
-                        <MovieCard movie={movie} key={i} />
+                        <MovieCard toggleUserData={toggleUserData} movie={movie} key={i} />
                     )
                 })}
                 {loading ? <div className="loading">Loading...</div> : null}

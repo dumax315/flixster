@@ -4,6 +4,7 @@ import Footer from './components/bodyParts/Footer'
 import MovieList from './components//MovieList'
 import { useState } from 'react';
 import FiltersAndSearch from './components/forms/FiltersAndSearch';
+import { UserData } from './types';
 
 function App() {
   const [isSearching, setIsSearching] = useState<boolean>(false);

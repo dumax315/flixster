@@ -80,11 +80,11 @@ Give a shout out to somebody from your cohort that especially helped you during 
 |Set the favicon|15 min| 402pm 6/10|<6:00pm 6/10||
 |Switching Between "Now Playing" and Search Results|1 hour| 6:34pm |eod 6/10|
 |Switch from "next page" to load more" | 45 min | | <12pm 6/11|
-|Use serverless functions to querry db||||
 |add header and footer| 30 min| 1:09pm 6/11| 2pm 6/11|
-|add filters||||
 |revamp the difference between seach and explore|1 hour|4:13|5:06 6/11|
-|Embedded Movie Trailer|30 min |5:30 6/11||
-|Watched Checkbox||||
+|Embedded Movie Trailer|30 min |5:30 6/11|6:37 |
+|Watched Checkbox|1 hour|6:40 pm 6/11|8:25||
 |Favorite Button||||
 |Sidebar||||
+|add filters||||
+|Use serverless functions to querry db||||

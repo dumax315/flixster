@@ -13,7 +13,7 @@
     padding: .5em;
     padding-top: 0em;
     padding-bottom: 0em;
-    transition:  padding .5s, width .5s;
+    transition: padding .5s, width .5s;
 
 }
 
@@ -42,4 +42,24 @@
     top: -5px;
     right: -5px;
     padding: 1em;
+}
+
+.togglelistButtons {
+    /* display: none; */
+    opacity: 0;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    padding-left: .5em;
+    transition: padding .5s, opacity .5s;
+}
+
+.togglelistButtons button{
+    display: block;
+}
+
+.MovieCard:hover .togglelistButtons {
+    display: block;
+    opacity: 1;
+    padding-left: 0px;
 }

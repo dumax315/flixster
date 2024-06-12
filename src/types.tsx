@@ -12,7 +12,9 @@ export interface Movie {
     title: string,
     video: boolean,
     vote_average: number,
-    vote_count: number
+    vote_count: number,
+    watched?: boolean,
+    liked?: boolean,
 }
 
 interface GenresLookup {
@@ -39,4 +41,12 @@ export const Genres:GenresLookup = {
     53:"Thriller",
     10752:"War",
     37:"Western",
+}
+
+export type UserDataKey = "likedMovies" | "watchedMovies";
+
+
+export interface UserData {
+    likedMovies: number[],
+    watchedMovies: number[],
 }
