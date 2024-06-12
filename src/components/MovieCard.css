@@ -1,5 +1,6 @@
 .MovieCard {
     position: relative;
+    cursor: pointer
 }
 .MoviePoster{
     width: calc(100% - 1em);
