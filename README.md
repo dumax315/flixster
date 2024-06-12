@@ -88,3 +88,4 @@ Give a shout out to somebody from your cohort that especially helped you during 
 |Sidebar||||
 |add filters||||
 |Use serverless functions to querry db||||
+|swithc like and watched buttons to imgs||||

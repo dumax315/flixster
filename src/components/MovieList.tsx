@@ -40,7 +40,6 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
 
         const response = await fetch(url, options);
         const data = await response.json();
-        console.log(data);
         if (movieDBPageNumber > 1) {
             setMoviesJSON(moviesJSON.concat(data.results));
         } else {
