@@ -84,7 +84,7 @@ Give a shout out to somebody from your cohort that especially helped you during 
 |revamp the difference between seach and explore|1 hour|4:13|5:06 6/11|
 |Embedded Movie Trailer|30 min |5:30 6/11|6:37 |
 |Watched Checkbox|1 hour|6:40 pm 6/11|8:25||
-|Favorite Button||||
+|Favorite Button|||see above|
 |Sidebar||||
 |add filters||||
 |Use serverless functions to querry db||||
@@ -97,3 +97,4 @@ Give a shout out to somebody from your cohort that especially helped you during 
 |invistagate why components folder is red in folder explore (vscode)||||
 | evaulate whether liked and watched should remain properties of Movie||||
 |style filterAndSearch||||
+|move dialog close button and make bg clickable||||

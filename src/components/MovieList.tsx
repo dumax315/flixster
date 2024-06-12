@@ -93,8 +93,8 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
     }, [])
 
     return (
-        <div className='bodyContainer'>
-            <div className="movieList">
+        <main className='bodyContainer'>
+            <section className="movieList">
 
                 {moviesJSON.map(function (movie, i) {
                     // set the liked and watched values to true or false based on the saved Userdata if they are not set
@@ -118,10 +118,10 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
                     )
                 })}
                 {loading ? <div className="loading">Loading...</div> : null}
-            </div>
+            </section>
             {/* increments the page number when load More is clicked */}
             <button className="loadMore" onClick={() => { setMovieDBPageNumber(movieDBPageNumber + 1) }}>Load More</button>
-        </div>
+        </main>
     )
 }
 

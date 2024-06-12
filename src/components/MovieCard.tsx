@@ -42,7 +42,7 @@ const MovieCard = ({ movie, toggleUserData }: Props) => {
 
     return (
         <>
-            <div className="MovieCard" onClick={openMovieDetails}>
+            <article className="MovieCard" onClick={openMovieDetails}>
                 <img draggable="false" className='MoviePoster' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} />
                 <p className='MovieTitle'>{movie.title}</p>
                 <div className='MovieRatingCircle'>
@@ -52,7 +52,7 @@ const MovieCard = ({ movie, toggleUserData }: Props) => {
                     <button onClickCapture={toggleLiked}>{liked ? "unlike" : "like"}</button>
                     <button onClickCapture={toggleWatched}>{watched ? "unwatched" : "watched"}</button>
                 </div>
-            </div>
+            </article>
             <MovieDetails movie={movie} isOpen={isMovieDetailsOpen} closeModalFunction={closeMovieDetails} />
         </>
 
