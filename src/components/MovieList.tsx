@@ -45,6 +45,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         } else {
             setMoviesJSON(data.results);
         }
+        setLoading(false)
     }
 
     useEffect(() => {
