@@ -89,3 +89,11 @@ Give a shout out to somebody from your cohort that especially helped you during 
 |add filters||||
 |Use serverless functions to querry db||||
 |swithc like and watched buttons to imgs||||
+|make loading a gif||||
+|figure out why prettier doesn't work on code-fb||||
+|only add modals to dom when needed||||
+|reevaluate component file system organization||||
+|make iframe not take up space if no vid yet||||
+|invistagate why components folder is red in folder explore (vscode)||||
+| evaulate whether liked and watched should remain properties of Movie||||
+|style filterAndSearch||||

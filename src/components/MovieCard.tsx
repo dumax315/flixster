@@ -22,7 +22,10 @@ const MovieCard = ({ movie, toggleUserData }: Props) => {
         setIsMovieDetailsOpen(false)
     }
 
+    // handles the butten clicks and passes along toggle to toggleUserData
+    // TODO these functions are too similar, could probably be combined
     const toggleLiked = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        // stop propagation so that the card doesn't get clicked
         event.stopPropagation();
         movie.liked = !movie.liked;
         setLiked(movie.liked);
@@ -30,6 +33,7 @@ const MovieCard = ({ movie, toggleUserData }: Props) => {
     }
 
     const toggleWatched = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        // stop propagation so that the card doesn't get clicked
         event.stopPropagation();
         movie.watched = !movie.watched;
         setWatched(movie.watched);

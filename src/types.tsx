@@ -1,3 +1,6 @@
+/** Movie type based on the response data from themoviedb.org,
+ * watched and liked are added during render and are not part of the response.
+ */
 export interface Movie {
     adult: boolean,
     backdrop_path: string,
@@ -17,10 +20,12 @@ export interface Movie {
     liked?: boolean,
 }
 
+/** Ensure type safety for the Genres object below */
 interface GenresLookup {
     [key: number]: string
 }
 
+/** Genres from themoviedb.org, used to decode the genre_ids aspect of type Movie */
 export const Genres:GenresLookup = {
     28:"Action",
     12:"Adventure",
@@ -43,9 +48,10 @@ export const Genres:GenresLookup = {
     37:"Western",
 }
 
+/** Keys for the UserData object below, allow the keys to be pass into a function */
 export type UserDataKey = "likedMovies" | "watchedMovies";
 
-
+/** The UserData type which is stored in MovieList and JSON.stringified into local storage to gain persistence across reloads*/
 export interface UserData {
     likedMovies: number[],
     watchedMovies: number[],

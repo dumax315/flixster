@@ -6,20 +6,19 @@ interface Props {
     handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const SearchBar = (props: Props) => {
+const SearchBar = ({searchQuery, handleSearchChange}: Props) => {
 
     useEffect(() => {
-        if (props.searchQuery.length > 0) {
+        if (searchQuery.length > 0) {
         }
-    }, [props.searchQuery]);
+    }, [searchQuery]);
 
     // return either an open search button or a search bar depending on the state of isSearching
     // TODO add closing animation
 
     return (
         <>
-            <input type="text" value={props.searchQuery} onChange={props.handleSearchChange} placeholder="Search" />
-
+            <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search" />
         </>
     )
 

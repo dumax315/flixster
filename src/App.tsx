@@ -12,6 +12,7 @@ function App() {
   const [currentSort, setCurrentSort] = useState<string>('popularity.desc');
 
 
+  // These are functions because https://blog.stackademic.com/dont-pass-setstate-as-a-prop-2cc2b187d323 said not to pass setState as a prop
   // handler functions for the FiltersAndSearch
   const handlerSearchSwitch = (isSearchingData: boolean) => {
     setMovieDBPageNumber(1)
@@ -26,7 +27,7 @@ function App() {
     setCurrentSort(currentSortData)
   }
 
-  // handler functions for the MovieList
+  // handler function for the MovieList
   const handleSetMovieDBPageNumber = (pageNumber: number) => {
     setMovieDBPageNumber(pageNumber)
   }

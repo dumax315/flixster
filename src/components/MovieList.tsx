@@ -15,6 +15,11 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
     const [loading, setLoading] = useState(true);
     const [userData, setUserData] = useState<UserData>();
 
+    /**
+     * Loads the movies from the MovieDB API, based on the current search query and the current sort
+     * When the current page number is not 1, it will concat the new results to the existing ones
+     * TODO: investage repeat movies at beginings and endings of pages
+     */
     const loadMovies = async () => {
         setLoading(true)
 
@@ -45,7 +50,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         } else {
             setMoviesJSON(data.results);
         }
-        setLoading(false)
+        setLoading(false);
     }
 
     const storeUserDataLocalStorage = async () => {
@@ -54,14 +59,14 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
 
     const toggleUserData = async (movie_id: number, add: boolean, userDataList: UserDataKey) => {
 
-        if(userData == undefined){
+        if (userData == undefined) {
             return;
         }
-        let userDataTemp:UserData = userData;
+        let userDataTemp: UserData = userData;
         if (add) {
             userDataTemp[userDataList].push(movie_id);
         }
-        else{
+        else {
             userDataTemp[userDataList].splice(userDataTemp[userDataList].indexOf(movie_id), 1)
         }
         await setUserData(userDataTemp);
@@ -72,44 +77,49 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         loadMovies();
     }, [movieDBPageNumber, searchQuery, currentSort]);
 
+    /**
+     * On page load checks for userData in local storage,
+     * Creates empty userData if it does not exist or if it does exist, sets the userData to the JSON.parsed local storage value
+     */
     useEffect(() => {
-        if(localStorage.getItem("userData") == undefined) {
+        if (localStorage.getItem("userData") == undefined) {
             setUserData({
-                likedMovies:[],
-                watchedMovies:[],
+                likedMovies: [],
+                watchedMovies: [],
             })
-        }else{
+        } else {
             setUserData(JSON.parse(localStorage.userData));
         }
     }, [])
 
     return (
         <div className='bodyContainer'>
-            <h2>Movie List</h2>
             <div className="movieList">
 
                 {moviesJSON.map(function (movie, i) {
                     // set the liked and watched values to true or false based on the saved Userdata if they are not set
-                    if (movie.liked == null){
-                        if(userData?.likedMovies.includes(movie.id)){
+                    if (movie.liked == null) {
+                        if (userData?.likedMovies.includes(movie.id)) {
                             movie.liked = true;
-                        }else{
+                        } else {
                             movie.liked = false;
                         }
                     }
-                    if (movie.watched == null){
-                        if(userData?.watchedMovies.includes(movie.id)){
+                    if (movie.watched == null) {
+                        if (userData?.watchedMovies.includes(movie.id)) {
                             movie.watched = true;
-                        }else{
+                        } else {
                             movie.liked = false;
                         }
                     }
+
                     return (
                         <MovieCard toggleUserData={toggleUserData} movie={movie} key={i} />
                     )
                 })}
                 {loading ? <div className="loading">Loading...</div> : null}
             </div>
+            {/* increments the page number when load More is clicked */}
             <button className="loadMore" onClick={() => { setMovieDBPageNumber(movieDBPageNumber + 1) }}>Load More</button>
         </div>
     )

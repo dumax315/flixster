@@ -6,6 +6,7 @@ interface Props {
     handleValueChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
+// TODO make the dropdown options dynamic (so the component can be used in the filter options as well)
 const Dropdown = (props: Props) => {
     return (
         <>
