@@ -2,10 +2,12 @@
 .MovieDetails {
     max-width: calc(100% - 4em - 6px);
 }
+
 .flexContainer {
-    display:block;
+    display: block;
     max-width: 800px;
 }
+
 .movieDetailsImg {
     float: left;
     width: 100%;
@@ -13,9 +15,17 @@
     margin-right: 1em;
 }
 
+.youtubeVideo {
+    aspect-ratio: 1.68 / 1;
+    width: 100%;
+    margin-top: 1em;
+    height: max-content;
+
+}
 
 @media screen and (min-width: 480px) {
     .movieDetailsImg {
         width: 50%;
+        max-width: 240px;
     }
-  }
+}
