@@ -29,5 +29,13 @@
     .sideBar {
         margin: 0px !important;
         min-width: unset !important;
+        width: unset !important;
     }
+    .sideBar.preload {
+        display: none !important;
+    }
+    .sideBarButton {
+        left: 15px !important;
+    }
+
 }

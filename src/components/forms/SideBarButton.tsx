@@ -2,15 +2,15 @@ import './SideBarButton.css'
 
 interface Props {
     onClick: () => void;
+    isOpen: boolean
 }
 
-const SideBarButton = ({ onClick }: Props) => {
+const SideBarButton = ({ onClick, isOpen }: Props) => {
 
     return (
-        <button onClick={onClick} className='sideBarButton'>
+        <button onClick={onClick} className={'sideBarButton ' + (isOpen?"":"preload")}>
             <img className="sideBarButtonImg" src="public/bars-solid.svg" alt="Bars"></img>
         </button>
-
     )
 }
 

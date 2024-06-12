@@ -1,13 +1,18 @@
 .sideBarButton {
     background: none;
     border: none;
-    transition: transform .2s;
+    transition: transform .2s, left .3s;
     position: absolute;
     z-index: 1;
+    left: 300px;
 }
 .sideBarButtonImg {
     width: 1.5em;
 }
 .sideBarButton:active {
     transform: translate(10%, 10%);
+}
+
+.sideBarButton.preload {
+    left: 15px;
 }
