@@ -1,4 +1,24 @@
-/* .MovieCard {} */
+.MovieCard {
+    position: relative;
+}
 .MoviePoster{
+    width: calc(100% - 1em);
+    padding: .5em;
+    padding-top: 0em;
+    padding-bottom: 2em;
+    transition: padding .5s, width .5s;
+}
+.MovieCard:hover .MoviePoster{
     width: 100%;
+    padding: 0px;
+}
+
+.MovieRating {
+    border-radius: 100%;
+    background: #121212;
+    position: absolute;
+    margin: 0px;
+    top: -5px;
+    right: -5px;
+    padding: 1em;
 }
