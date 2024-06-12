@@ -1,6 +1,13 @@
 .bodyContainer {
     padding: 1em;
+    min-height: 100vh;
     display: flex;
+}
+
+.movieListContainer {
+    min-width: 0;
+    margin: auto;
+    margin-top: 0px;
 }
 
 .movieList {
@@ -11,15 +18,13 @@
     /* TODO invistagate why these were needed */
     /* margin-left: 1em;
     margin-right: 1em; */
-    margin: auto;
-    margin-top: 0px;
-    min-width: 0;
 }
 
 /* Ensures that the footer doesn't cover up content */
 /* TODO: invistage a better way to do this */
 .loadMore {
     margin-bottom: 7em;
+
 }
 
 /* Make the side bar and content stack if the page is small */

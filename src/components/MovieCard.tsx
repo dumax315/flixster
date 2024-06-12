@@ -38,14 +38,13 @@ const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike=false
         // movie.watched = !movie.watched;
         toggleUserData(movie.id, !watched, "watchedMovies")
     }
-
     return (
         <>
             <article className="MovieCard" onClick={openMovieDetails}>
                 <img draggable="false" className='MoviePoster' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} />
                 <p className='MovieTitle'>{movie.title}</p>
                 <div className='MovieRatingCircle'>
-                    <p className='MovieRating'>{movie.vote_average.toFixed(1)}</p>
+                    <p className='MovieRating'>{(movie.vote_average==undefined?0:movie.vote_average).toPrecision(2)}</p>
                 </div>
                 <div className={'togglelistButtons ' + (alwaysShowLike ? "showButtonsAlways":"")}>
                     <button onClickCapture={toggleLiked}>{liked ? "unlike" : "like"}</button>

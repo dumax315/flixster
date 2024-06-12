@@ -1,5 +1,5 @@
 import './MovieDetails.css'
-import { Movie, Genres } from './../types';
+import { Movie, Genres, Trailer } from './../types';
 import { useEffect, useRef, useState } from 'react';
 
 interface Props {
@@ -22,10 +22,19 @@ const MovieDetails = ({movie, isOpen, closeModalFunction}: Props) => {
                 accept: 'application/json',
             }
         };
-        let url = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${import.meta.env.VITE_API_KEY}`;
+        let url = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${import.meta.env.VITE_API_KEY}&append_to_response=videos`;
         const response = await fetch(url, options);
         const data = await response.json();
-        const youtubeCode = data.results[0].key;
+        movie.runtime = data.runtime;
+        let trailers:Trailer[] = data.videos.results;
+        let trailerIndex:number = trailers.findIndex((video:Trailer) => {
+
+            return video.type == "Trailer";
+        })
+        if(trailerIndex == -1){
+            trailerIndex = 0;
+        }
+        const youtubeCode = trailers[trailerIndex].key;
         setVideoUrl(`https://www.youtube.com/embed/${youtubeCode}`);
     }
 
@@ -50,6 +59,7 @@ const MovieDetails = ({movie, isOpen, closeModalFunction}: Props) => {
                     <p>Release date: {movie.release_date}</p>
                     <p>{movie.overview}</p>
                     <p>Genres: {movie.genre_ids.map((value) => {return Genres[value]}).join(" ")}</p>
+                    <p>Runtime: {movie.runtime} minutes</p>
 
                     <iframe className='youtubeVideo' ref={videoRef} width="560" height="315" src={videoUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
