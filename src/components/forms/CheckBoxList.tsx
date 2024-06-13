@@ -1,4 +1,3 @@
-import { Genres } from "../../types";
 import "./CheckBoxList.css";
 
 interface Props {

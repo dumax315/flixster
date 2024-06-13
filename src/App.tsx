@@ -2,7 +2,7 @@ import './App.css'
 import Header from './components/bodyParts/Header'
 import Footer from './components/bodyParts/Footer'
 import MovieList from './components//MovieList'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FiltersAndSearch from './components/forms/FiltersAndSearch';
 
 function App() {
@@ -36,6 +36,10 @@ function App() {
   const handleSetMovieDBPageNumber = (pageNumber: number) => {
     setMovieDBPageNumber(pageNumber)
   }
+
+  useEffect(() => {
+    setMovieDBPageNumber(1);
+  }, [selectedOptions])
 
 
   return (
