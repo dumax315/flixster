@@ -6,3 +6,8 @@
     color: white;
     background-color: var(--darkBG);
 }
+
+a:link { color: lightskyblue; }
+a:visited { color: #f1e1ff; }
+a:hover { color: #ffffff; }
+a:active { color: #ff4040; text-decoration:none; font-weight:normal; }
