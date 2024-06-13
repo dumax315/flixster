@@ -14,3 +14,12 @@
     display: flex;
     gap: 1em;
 }
+
+.checkBoxList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkBoxList.checkBoxListClosed{
+    display: none;
+}

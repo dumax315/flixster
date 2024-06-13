@@ -10,6 +10,7 @@ function App() {
   const [movieDBPageNumber, setMovieDBPageNumber] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [currentSort, setCurrentSort] = useState<string>('popularity.desc');
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
 
   // These are functions because https://blog.stackademic.com/dont-pass-setstate-as-a-prop-2cc2b187d323 said not to pass setState as a prop
@@ -27,10 +28,15 @@ function App() {
     setCurrentSort(currentSortData)
   }
 
+  const handleGenreInputChange = (genreOptions:string[]) => {
+    setSelectedOptions(genreOptions);
+  }
+
   // handler function for the MovieList
   const handleSetMovieDBPageNumber = (pageNumber: number) => {
     setMovieDBPageNumber(pageNumber)
   }
+
 
   return (
     <>
@@ -42,12 +48,15 @@ function App() {
         setIsSearching={handlerSearchSwitch}
         currentSort={currentSort}
         setCurrentSort={handleSetCurrentSort}
+        selectedOptions={selectedOptions}
+        setSelectedOptions={handleGenreInputChange}
       />
       <MovieList
         searchQuery={searchQuery}
         currentSort={currentSort}
         movieDBPageNumber={movieDBPageNumber}
         setMovieDBPageNumber={handleSetMovieDBPageNumber}
+        selectedOptions={selectedOptions}
       />
       <Footer />
     </>
