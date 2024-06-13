@@ -1,8 +1,13 @@
 /* Defines colors that can be used throughout the website, found on coolors.co */
 /* TODO: add more colors and dark/light mode colors */
 #root {
-    --darkBG: hsl(279, 7%, 52%);
-    --darkAccent: hsl(0, 4%, 34%);
+    --darkBG: hsl(279deg 4.07% 25.34%);
+    --darkAccent:hsl(0deg 6.79% 17.7%);;
     color: white;
     background-color: var(--darkBG);
 }
+
+a:link { color: lightskyblue; }
+a:visited { color: #f1e1ff; }
+a:hover { color: #ffffff; }
+a:active { color: #ff4040; text-decoration:none; font-weight:normal; }

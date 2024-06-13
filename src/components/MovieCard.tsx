@@ -11,7 +11,7 @@ interface Props {
     alwaysShowLike?: boolean
 }
 
-const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike=false }: Props) => {
+const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike = false }: Props) => {
     const [isMovieDetailsOpen, setIsMovieDetailsOpen] = useState<boolean>(false);
     // if null set to false (that is what ?? does)
 
@@ -41,15 +41,21 @@ const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike=false
     return (
         <>
             <article className="MovieCard" onClick={openMovieDetails}>
-                <img draggable="false" className='MoviePoster' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} />
+                <figure className='MoviePoster'>
+                     <div className='MoviePosterImg' />
+                    <img draggable="false" className='MoviePosterImg' alt={movie.title + " poster"} src={
+                         (movie.poster_path != null ? "https://image.tmdb.org/t/p/w500/" + movie.poster_path : "/noPoster.webp")
+                    } />
+                    <div className={'togglelistButtons ' + (alwaysShowLike ? "showButtonsAlways" : "")}>
+                        <button onClickCapture={toggleLiked}>{liked ? "unlike" : "like"}</button>
+                        <button onClickCapture={toggleWatched}>{watched ? "unwatched" : "watched"}</button>
+                    </div>
+                </figure>
                 <p className='MovieTitle'>{movie.title}</p>
                 <div className='MovieRatingCircle'>
-                    <p className='MovieRating'>{(movie.vote_average==undefined?0:movie.vote_average).toPrecision(2)}</p>
+                    <p className='MovieRating'>{(movie.vote_average == undefined ? 0 : movie.vote_average).toPrecision(2)}</p>
                 </div>
-                <div className={'togglelistButtons ' + (alwaysShowLike ? "showButtonsAlways":"")}>
-                    <button onClickCapture={toggleLiked}>{liked ? "unlike" : "like"}</button>
-                    <button onClickCapture={toggleWatched}>{watched ? "unwatched" : "watched"}</button>
-                </div>
+
             </article>
             {isMovieDetailsOpen ? <MovieDetails movie={movie} isOpen={isMovieDetailsOpen} closeModalFunction={closeMovieDetails} /> : null}
         </>

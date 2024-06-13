@@ -58,4 +58,10 @@
         opacity: 1 !important;
     }
 
+    .sideBarTitle {
+        font-size: large !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
 }
