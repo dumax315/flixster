@@ -55,7 +55,7 @@ const FiltersAndSearch = ({ isSearching, setIsSearching, searchQuery, setSearchQ
         return (
             <nav className='filtersAndSearch'>
                 <div className='filters'>
-                    <Dropdown currentValue={currentSort} handleValueChange={handleSortChange} />
+                    <Dropdown selectionName="Sort by" currentValue={currentSort} handleValueChange={handleSortChange} />
                     <button onClick={handleGenreOpenClick}>{genreOpen ? "Close Genre Filter ⬆️" : "Filter by Genre ⬇️" }</button>
                     <button className="navButton" onClick={openSearch}>Go to Search</button>
                 </div>

@@ -1,3 +1,6 @@
 .dropdown{
     padding: 4px;
 }
+.dropdownLabel{
+    margin-right: 4px;
+}
