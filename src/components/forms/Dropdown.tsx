@@ -13,8 +13,8 @@ const Dropdown = ({ currentValue, handleValueChange, selectionName }: Props) => 
         <div>
             <label className="dropdownLabel" htmlFor={selectionName}>{selectionName}</label>
                 <select id={selectionName} className="dropdown" value={currentValue} onChange={handleValueChange}>
-                    <option value="original_title.asc">original_title.asc</option>
-                    <option value="original_title.desc">original_title.desc</option>
+                    {/* <option value="original_title.asc">original_title.asc</option>
+                    <option value="original_title.desc">original_title.desc</option> */}
                     {/* <option value="popularity.asc">popularity.asc</option> */}
                     <option value="popularity.desc">popularity.desc</option>
                     {/* <option value="revenue.asc">revenue.asc</option> */}

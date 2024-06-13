@@ -2,6 +2,7 @@
     position: relative;
     cursor: pointer;
     transition: filter .6s;
+    min-height: 300px;
 }
 
 .MovieCard:hover {
