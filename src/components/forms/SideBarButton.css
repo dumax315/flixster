@@ -10,6 +10,7 @@
 }
 .sideBarButtonImg {
     width: 1.5em;
+    filter: invert(1);
 }
 .sideBarButton:active {
     transform: translate(10%, 10%);
