@@ -4,7 +4,7 @@ const Footer = () => {
 
     return (
         <footer>
-            <h3>Created by <a href="https://theoh.dev">Theo Halpern</a></h3>
+            <p className='footerText'>Created by <a href="https://theoh.dev">Theo Halpern</a></p>
         </footer>
     )
 }
