@@ -32,17 +32,24 @@
     .bodyContainer {
         display: block;
     }
+
     /* Important is used so that the media querry can live only in this file */
     .sideBar {
         margin: 0px !important;
         min-width: unset !important;
         width: unset !important;
     }
+
     .sideBar.preload {
         display: none !important;
     }
+
     .sideBarButton {
         left: 15px !important;
+    }
+
+    .togglelistButtons {
+        opacity: 1 !important;
     }
 
 }

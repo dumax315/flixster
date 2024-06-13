@@ -1,7 +1,7 @@
 import './MovieList.css'
 import MovieCard from './MovieCard'
 import { useEffect, useState } from 'react';
-import { Movie, UserData, UserDataKey } from './../types';
+import { GenresIds, Movie, UserData, UserDataKey } from './../types';
 import SideBarButton from './forms/SideBarButton';
 import SideBar from './bodyParts/SideBar';
 
@@ -10,9 +10,10 @@ interface Props {
     currentSort: string,
     movieDBPageNumber: number,
     setMovieDBPageNumber: (pageNumber: number) => void,
+    selectedOptions: string[],
 }
 
-const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPageNumber }: Props) => {
+const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPageNumber, selectedOptions }: Props) => {
     const [moviesJSON, setMoviesJSON] = useState<Movie[]>([]);
     const [loading, setLoading] = useState(true);
     const [userData, setUserData] = useState<UserData>({ likedMovies: [], watchedMovies: [] });
@@ -27,6 +28,9 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         setLoading(true)
 
         let url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US`;
+        if (selectedOptions.length > 0) {
+            url += `&with_genres=${selectedOptions.map((value)=>GenresIds[value]).join(',')}`;
+        }
         if (searchQuery !== '') {
             url = `https://api.themoviedb.org/3/search/movie?query=${encodeURI(searchQuery)}`
 
@@ -50,7 +54,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
         const response = await fetch(url, options);
         const data = await response.json();
         if (movieDBPageNumber > 1) {
-            setMoviesJSON((prev) => {return [...prev, ...data.results]});
+            setMoviesJSON((prev) => { return [...prev, ...data.results] });
         } else {
             setMoviesJSON(data.results);
         }
@@ -90,7 +94,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
 
     useEffect(() => {
         loadMovies();
-    }, [movieDBPageNumber, searchQuery, currentSort]);
+    }, [movieDBPageNumber, searchQuery, currentSort, selectedOptions]);
     /**
      * On page load checks for userData in local storage,
      * Creates empty userData if it does not exist or if it does exist, sets the userData to the JSON.parsed local storage value

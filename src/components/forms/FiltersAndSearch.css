@@ -3,8 +3,23 @@
     display: flex;
     justify-content: space-around;
     padding: 1em;
+    flex-wrap: wrap;
 }
 
 .navButton {
     height: 100%;
+}
+
+.filters {
+    display: flex;
+    gap: 1em;
+}
+
+.checkBoxList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkBoxList.checkBoxListClosed{
+    display: none;
 }
