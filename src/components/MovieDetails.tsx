@@ -52,7 +52,7 @@ const MovieDetails = ({movie, isOpen, closeModalFunction}: Props) => {
         <dialog ref={dialogRef} className='MovieDetails'>
             <div className='flexContainer'>
 
-                <img draggable="false" className='movieDetailsImg' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt={movie.title + "poster"} />
+                <img draggable="false" className='movieDetailsImg' src={(movie.poster_path != null ? "https://image.tmdb.org/t/p/w500/" + movie.poster_path : "/noPoster.webp")} alt={movie.title + "poster"} />
                 <div>
                     <button onClick={closeModalFunction}>X</button>
                     <h2>{movie.title}</h2>

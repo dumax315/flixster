@@ -42,7 +42,10 @@ const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike = fal
         <>
             <article className="MovieCard" onClick={openMovieDetails}>
                 <figure className='MoviePoster'>
-                    <img draggable="false" className='MoviePosterImg' alt={movie.title + " poster"} src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} />
+                     <div className='MoviePosterImg' />
+                    <img draggable="false" className='MoviePosterImg' alt={movie.title + " poster"} src={
+                         (movie.poster_path != null ? "https://image.tmdb.org/t/p/w500/" + movie.poster_path : "/noPoster.webp")
+                    } />
                     <div className={'togglelistButtons ' + (alwaysShowLike ? "showButtonsAlways" : "")}>
                         <button onClickCapture={toggleLiked}>{liked ? "unlike" : "like"}</button>
                         <button onClickCapture={toggleWatched}>{watched ? "unwatched" : "watched"}</button>
