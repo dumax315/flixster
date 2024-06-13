@@ -24,6 +24,10 @@ export interface Movie {
     vote_average: number,
     vote_count: number,
     runtime?: number,
+    videos?: {
+        results: Trailer[]
+    },
+    genres?: string[],
 }
 
 /** Ensure type safety for the Genres object below */

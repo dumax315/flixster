@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { GenresIds, Movie, UserData, UserDataKey } from './../types';
 import SideBarButton from './forms/SideBarButton';
 import SideBar from './bodyParts/SideBar';
+import { Discover, Query } from '../../TheMovieDBWrapper.telefunc.ts';
+
 
 interface Props {
     searchQuery: string,
@@ -27,36 +29,28 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
     const loadMovies = async () => {
         setLoading(true)
 
-        let url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US`;
-        if (selectedOptions.length > 0) {
-            url += `&with_genres=${selectedOptions.map((value)=>GenresIds[value]).join(',')}`;
-        }
-        if (searchQuery !== '') {
-            url = `https://api.themoviedb.org/3/search/movie?query=${encodeURI(searchQuery)}`
-
-        }
-
-        url += `&sort_by=${currentSort}`;
-        url += `&page=${movieDBPageNumber}`;
-        url += `&api_key=${import.meta.env.VITE_API_KEY}`
-        const options = {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-            }
-        };
-
         // Clears the page if the query has changed (instead of new page)
         if (movieDBPageNumber == 1) {
             setMoviesJSON([])
         }
 
-        const response = await fetch(url, options);
-        const data = await response.json();
+        let data:Movie[] = [];
+
+        if (searchQuery == '') {
+            let url = `&sort_by=${currentSort}&page=${movieDBPageNumber}`;
+            if (selectedOptions.length > 0) {
+                url += `&with_genres=${selectedOptions.map((value)=>GenresIds[value]).join(',')}`;
+            }
+            data = await Discover(url);
+
+        }else{
+            data = await Query(`${encodeURI(searchQuery)}`);
+        }
+
         if (movieDBPageNumber > 1) {
-            setMoviesJSON((prev) => { return [...prev, ...data.results] });
+            setMoviesJSON((prev) => { return [...prev, ...data] });
         } else {
-            setMoviesJSON(data.results);
+            setMoviesJSON(data);
         }
         setLoading(false);
     }

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Movie, UserData, UserDataKey } from '../../types';
 import './SideBar.css'
 import MovieCard from '../MovieCard';
+import { GetMovie } from '../../../TheMovieDBWrapper.telefunc';
 
 interface Props {
     isOpen: boolean;
@@ -29,18 +30,9 @@ const SideBar = ({ isOpen, userData, toggleUserData }: Props) => {
                     return userData[lists[currentList]][i] == item.id;
                 });
                 if(movieIndex == -1){
-                    let url = "https://api.themoviedb.org/3/movie/";
-                    url += userData[lists[currentList]][i];
-                    url += `?api_key=${import.meta.env.VITE_API_KEY}`
-                    const options = {
-                        method: 'GET',
-                        headers: {
-                            accept: 'application/json',
-                        }
-                    };
-                    const response = await fetch(url, options);
-                    let data = await response.json();
-                    let temp = data.genres.map((genre: any) => {
+                    const data = await GetMovie(userData[lists[currentList]][i]);
+
+                    let temp = data.genres!.map((genre: any) => {
                         // console.log(genre.id);
                         return genre.id;
                     });
