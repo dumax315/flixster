@@ -51,7 +51,7 @@ const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike=false
                     <button onClickCapture={toggleWatched}>{watched ? "unwatched" : "watched"}</button>
                 </div>
             </article>
-            <MovieDetails movie={movie} isOpen={isMovieDetailsOpen} closeModalFunction={closeMovieDetails} />
+            {isMovieDetailsOpen ? <MovieDetails movie={movie} isOpen={isMovieDetailsOpen} closeModalFunction={closeMovieDetails} /> : null}
         </>
 
     )
