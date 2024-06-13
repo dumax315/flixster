@@ -13,7 +13,7 @@ export default defineConfig({
         build: {
           rollupOptions: {
             input: {
-              'entry-server': './src/server.js'
+              'entry-server': './server.js'
             }
           }
         }

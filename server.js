@@ -1,4 +1,5 @@
 import { telefunc } from 'telefunc'
+const port = process.env.PORT || 4000;
 // import '../dist/server/entry.js'
 
 // Telefunc middleware
@@ -14,4 +15,9 @@ app.all('/_telefunc', async (req, res) => {
   console.log('httpResponse', httpResponse);
   const { body, statusCode, contentType } = httpResponse
   res.status(statusCode).type(contentType).send(body)
+})
+
+// Start http server
+app.listen(port, () => {
+  console.log(`Server started at http://localhost:${port}`)
 })
