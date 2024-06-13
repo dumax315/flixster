@@ -1,3 +1,4 @@
+import CheckBoxList from './CheckBoxList';
 import Dropdown from './Dropdown';
 import './FiltersAndSearch.css'
 import SearchBar from './SearchBar';
@@ -43,10 +44,12 @@ const FiltersAndSearch = ({ isSearching, setIsSearching, searchQuery, setSearchQ
     } else {
         return (
             <nav className='filtersAndSearch'>
-                <div>
+                <div className='filters'>
                     <Dropdown currentValue={currentSort} handleValueChange={handleSortChange} />
                     <button className="navButton" onClick={openSearch}>Go to Search</button>
                 </div>
+                <CheckBoxList options={["Action","Adventure","Animation","Comedy","Crime","Documentary","Drama","Family","Fantasy","History","Horror","Music","Mystery","Romance","Science Fiction","TV Movie","Thriller","War","Western"]} />
+
             </nav>
         )
     }

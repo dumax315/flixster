@@ -1,0 +1,11 @@
+.checkBoxList{
+    margin-top: .5em;
+}
+.container {
+    display: block;
+}
+
+.checkBoxList {
+    display: flex;
+    flex-wrap: wrap;
+}
