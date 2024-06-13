@@ -1,7 +1,7 @@
 /* Defines colors that can be used throughout the website, found on coolors.co */
 /* TODO: add more colors and dark/light mode colors */
 #root {
-    --darkBG: hsl(279, 7%, 52%);
+    --darkBG: hsl(279deg 4.07% 25.34%);
     --darkAccent: hsl(0, 4%, 34%);
     color: white;
     background-color: var(--darkBG);
