@@ -1,11 +1,11 @@
-export { Discover, Query, GetMovie }
+export { onDiscover, onQuery, onGetMovie }
 
 import fetch from 'node-fetch'
-import { Movie } from './src/types';
+import { Movie } from '../types';
 
 // Telefunction arguments are automatically validated
 // at runtime: `params` is guaranteed to be a string.
-async function Discover(params: string) : Promise<Movie[]> {
+async function onDiscover(params: string) : Promise<Movie[]> {
 
   let url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US`;
 
@@ -27,7 +27,7 @@ async function Discover(params: string) : Promise<Movie[]> {
   return movies;
 }
 
-async function Query(searchQuery: string) : Promise<Movie[]> {
+async function onQuery(searchQuery: string) : Promise<Movie[]> {
 
   let url = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}`;
 
@@ -47,7 +47,7 @@ async function Query(searchQuery: string) : Promise<Movie[]> {
   return movies;
 }
 
-async function GetMovie(movie_id: number) : Promise<Movie> {
+async function onGetMovie(movie_id: number) : Promise<Movie> {
 
   let url = `https://api.themoviedb.org/3/movie/${movie_id}?append_to_response=videos`;
 

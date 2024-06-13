@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { GenresIds, Movie, UserData, UserDataKey } from './../types';
 import SideBarButton from './forms/SideBarButton';
 import SideBar from './bodyParts/SideBar';
-import { Discover, Query } from '../../TheMovieDBWrapper.telefunc.ts';
+import { onDiscover, onQuery } from './onMovieList.telefunc.ts';
 
 
 interface Props {
@@ -41,10 +41,10 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
             if (selectedOptions.length > 0) {
                 url += `&with_genres=${selectedOptions.map((value)=>GenresIds[value]).join(',')}`;
             }
-            data = await Discover(url);
+            data = await onDiscover(url);
 
         }else{
-            data = await Query(`${encodeURI(searchQuery)}`);
+            data = await onQuery(`${encodeURI(searchQuery)}`);
         }
 
         if (movieDBPageNumber > 1) {

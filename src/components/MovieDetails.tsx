@@ -1,7 +1,7 @@
 import './MovieDetails.css'
 import { Movie, Genres, Trailer } from './../types';
 import { useEffect, useRef, useState } from 'react';
-import { GetMovie } from '../../TheMovieDBWrapper.telefunc.ts';
+import { onGetMovie } from './onMovieList.telefunc.ts';
 
 
 interface Props {
@@ -18,7 +18,7 @@ const MovieDetails = ({movie, isOpen, closeModalFunction}: Props) => {
     // Get the youtube url id from the themoviedb API
     // then set the iframe src with the youtube url
     const getYoutubeCode = async () => {
-        const data = await GetMovie(movie.id);
+        const data = await onGetMovie(movie.id);
 
         movie.runtime = data.runtime;
         let trailers:Trailer[] = data.videos!.results;

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Movie, UserData, UserDataKey } from '../../types';
 import './SideBar.css'
 import MovieCard from '../MovieCard';
-import { GetMovie } from '../../../TheMovieDBWrapper.telefunc';
+import { onGetMovie } from '../onMovieList.telefunc';
 
 interface Props {
     isOpen: boolean;
@@ -30,7 +30,7 @@ const SideBar = ({ isOpen, userData, toggleUserData }: Props) => {
                     return userData[lists[currentList]][i] == item.id;
                 });
                 if(movieIndex == -1){
-                    const data = await GetMovie(userData[lists[currentList]][i]);
+                    const data = await onGetMovie(userData[lists[currentList]][i]);
 
                     let temp = data.genres!.map((genre: any) => {
                         // console.log(genre.id);
