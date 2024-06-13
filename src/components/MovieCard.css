@@ -14,7 +14,12 @@
     padding-top: 0em;
     padding-bottom: 0em;
     transition: padding .5s, width .5s;
+    margin: 0px;
+    position: relative;
+}
 
+.MoviePosterImg {
+    width: 100%;
 }
 
 .MovieCard:hover .MoviePoster {
@@ -55,9 +60,9 @@
 }
 
 .togglelistButtons {
-    opacity: 0;
+    opacity: .6;
     position: absolute;
-    top: 4px;
+    bottom: 8px;
     left: 4px;
     padding-left: .5em;
     transition: padding .5s, opacity .5s;
