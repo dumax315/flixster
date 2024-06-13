@@ -2,7 +2,7 @@
 /* TODO: add more colors and dark/light mode colors */
 #root {
     --darkBG: hsl(279deg 4.07% 25.34%);
-    --darkAccent: hsl(0, 4%, 34%);
+    --darkAccent:hsl(0deg 6.79% 17.7%);;
     color: white;
     background-color: var(--darkBG);
 }
