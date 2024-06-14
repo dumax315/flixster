@@ -13,6 +13,7 @@ interface Props {
 
 const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike = false }: Props) => {
     const [isMovieDetailsOpen, setIsMovieDetailsOpen] = useState<boolean>(false);
+    const [hideButtons, setHideButtons] = useState<boolean>(true);
     // if null set to false (that is what ?? does)
 
 
@@ -43,10 +44,11 @@ const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike = fal
             <article className="MovieCard" onClick={openMovieDetails}>
                 <figure className='MoviePoster'>
                      <div className='MoviePosterImg' />
-                    <img draggable="false" className='MoviePosterImg' alt={movie.title + " poster"} src={
+                    <img onLoad={() => setHideButtons(false)} draggable="false" className='MoviePosterImg' alt={movie.title + " poster"} src={
                          (movie.poster_path != null ? "https://image.tmdb.org/t/p/w500/" + movie.poster_path : "/noPoster.webp")
                     } />
-                    <div className={'togglelistButtons ' + (alwaysShowLike ? "showButtonsAlways" : "")}>
+
+                    <div className={'togglelistButtons ' + (alwaysShowLike ? "showButtonsAlways " : "") + (hideButtons ? "hiddenButton " : "")}>
                         <button style={{marginBottom:".4em"}} className='toggleButton' onClickCapture={toggleLiked}><img className="toggleButtonImg" src={liked ? "/heart-filled.svg" : "/heart-outline.svg"}></img></button>
                         <button className='toggleButton' onClickCapture={toggleWatched}><img className="toggleButtonImg" src={watched ? "/tv-checked.svg" : "/tv-unchecked.svg"}></img></button>
                     </div>

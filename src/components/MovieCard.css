@@ -96,3 +96,7 @@ img.toggleButtonImg {
     padding: 2px;
     border-radius: 2px;
 }
+
+.hiddenButton {
+    display: none;
+}
