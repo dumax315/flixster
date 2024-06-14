@@ -41,7 +41,6 @@ const FiltersAndSearch = ({ isSearching, setIsSearching, searchQuery, setSearchQ
     }
 
     // return either an open search button or a search bar depending on the state of isSearching
-    // TODO add closing animation
     if (isSearching) {
         return (
             <nav className='filtersAndSearch'>

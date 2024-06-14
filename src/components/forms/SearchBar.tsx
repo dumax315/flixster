@@ -14,8 +14,6 @@ const SearchBar = ({searchQuery, handleSearchChange}: Props) => {
     }, [searchQuery]);
 
     // return either an open search button or a search bar depending on the state of isSearching
-    // TODO add closing animation
-
     return (
         <>
             <input className="searchBar" type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search" />

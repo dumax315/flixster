@@ -47,8 +47,8 @@ const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike = fal
                          (movie.poster_path != null ? "https://image.tmdb.org/t/p/w500/" + movie.poster_path : "/noPoster.webp")
                     } />
                     <div className={'togglelistButtons ' + (alwaysShowLike ? "showButtonsAlways" : "")}>
-                        <button onClickCapture={toggleLiked}>{liked ? "unlike" : "like"}</button>
-                        <button onClickCapture={toggleWatched}>{watched ? "unwatched" : "watched"}</button>
+                        <button style={{marginBottom:".4em"}} className='toggleButton' onClickCapture={toggleLiked}><img className="toggleButtonImg" src={liked ? "/heart-filled.svg" : "/heart-outline.svg"}></img></button>
+                        <button className='toggleButton' onClickCapture={toggleWatched}><img className="toggleButtonImg" src={watched ? "/tv-checked.svg" : "/tv-unchecked.svg"}></img></button>
                     </div>
                 </figure>
                 <p className='MovieTitle'>{movie.title}</p>

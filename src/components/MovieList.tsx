@@ -23,6 +23,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
      * Loads the movies from the MovieDB API, based on the current search query and the current sort
      * When the current page number is not 1, it will concat the new results to the existing ones
      * TODO: investage repeat movies at beginings and endings of pages
+     * Seems to be resolved
      */
     const loadMovies = async () => {
         setLoading(true)
@@ -125,7 +126,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
                     })}
                 </section>
                 <div className="loadMoreContainer">
-                    {loading ? <div className="loading">Loading...</div> : null}
+                    {loading ? <div className="loading" aria-label='loading'></div> : null}
                     {/* increments the page number when load More is clicked */}
                     {/* maybe this should be new function call incrementmoviedb */}
                     <button className="loadMore" onClick={() => { setMovieDBPageNumber(movieDBPageNumber + 1) }}>Load More</button>

@@ -1,0 +1,12 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="640" height="640">
+	<title>tv-solid-svg</title>
+	<defs>
+		<image width="898" height="640" id="img1" href="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDQ0OSAzMjAiIHdpZHRoPSI0NDkiIGhlaWdodD0iMzIwIj48c3R5bGU+LmF7ZmlsbDojMGYwfTwvc3R5bGU+PHBhdGggY2xhc3M9ImEiIGQ9Im00MzkuNiA5LjRjMTIuNSAxMi41IDEyLjUgMzIuOCAwIDQ1LjNsLTI1NiAyNTZjLTEyLjUgMTIuNS0zMi44IDEyLjUtNDUuMyAwbC0xMjgtMTI4Yy0xMi41LTEyLjUtMTIuNS0zMi44IDAtNDUuMyAxMi41LTEyLjUgMzIuOC0xMi41IDQ1LjMgMGwxMDUuNCAxMDUuMyAyMzMuNC0yMzMuM2MxMi41LTEyLjUgMzIuOC0xMi41IDQ1LjMgMHoiLz48L3N2Zz4="/>
+	</defs>
+	<style>
+		.s0 { fill: #000000 } 
+	</style>
+	<path id="Layer" fill-rule="evenodd" class="s0" d="m0 192c0-35.3 28.7-64 64-64h512c35.3 0 64 28.7 64 64v288c0 35.3-28.7 64-64 64h-512c-35.3 0-64-28.7-64-64zm64 0v288h512v-288zm64 384h384c17.7 0 32 14.3 32 32 0 17.7-14.3 32-32 32h-384c-17.7 0-32-14.3-32-32 0-17.7 14.3-32 32-32z"/>
+	<path id="Shape 1" class="s0" d="m37 156h558v347h-558z"/>
+	<use id="Layer (1)" href="#img1" transform="matrix(.548,0,0,.548,148,69)"/>
+</svg>

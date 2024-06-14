@@ -4,7 +4,7 @@
 
 Submitted by: **Theo**
 
-Estimated time spent: **20** hours spent in total
+Estimated time spent: **30** hours spent in total
 
 Deployed Application (optional): [Flixster Deployed Site](https://flixster-ctfr.onrender.com/)
 
@@ -55,23 +55,25 @@ Deployed Application (optional): [Flixster Deployed Site](https://flixster-ctfr.
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+The topics discussed in our labs were a good starting point for the project. Specificly the discussion of useState proved very useful.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
-Add your response here
+I would have integrated with the "themoviedb.org" auth system and allowed users to leave review on movies. I would have also spent time on a feature to find movies near you.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+n/a did not demo this week.
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- Font Awesome
+- telefunc (but only in the adding-cloud-functions branch)
+- vite
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Shout out to Paige Godfrey and the other cohort 2 instuctors for knowledgeably teaching react fundamentals
 
 
 ## Tasks
@@ -86,18 +88,18 @@ Give a shout out to somebody from your cohort that especially helped you during 
 |Watched Checkbox|1 hour|6:40 pm 6/11|8:25||
 |Favorite Button|||see above|
 |Sidebar|2 hours| 7:40am 6/12|1:39 pm 6/12|
-|add filters||||
-|Use serverless functions to querry db||||
-|swithc like and watched buttons to imgs||||
-|make loading a gif||||
-|figure out why prettier doesn't work on code-fb||||
-|only add modals to dom when needed||||
+|add filters|||Done|
+|Use serverless functions to querry db|||Done - see adding cloud function branch|
+|swithc like and watched buttons to imgs|||Done|
+|only add modals to dom when needed|||Done|
+|make iframe not take up space if no vid yet|||Done|
+|invistagate why components folder is red in folder explore (vscode)||| No longer red, reason unknown|
+| evaulate whether liked and watched should remain properties of Movie|||Done (removed from movie)|
+|style filterAndSearch|||Done|
+|replace setStates that use the state with fucitions that have prev|||Done|
+|add images for null image|||Done|
+|always show heart on mobile|||Done|
+|make loading a gif|15 min|8:15am 6/14|8:25|
 |reevaluate component file system organization||||
-|make iframe not take up space if no vid yet||||
-|invistagate why components folder is red in folder explore (vscode)||||
-| evaulate whether liked and watched should remain properties of Movie||||
-|style filterAndSearch||||
 |move dialog close button and make bg clickable||||
-|replace setStates that use the state with fucitions that have prev||||
-|add images for null image|
-|always show heart on mobile|
+|figure out why prettier doesn't work on code-fb||||
