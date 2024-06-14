@@ -68,6 +68,7 @@ n/a did not demo this week.
 - Font Awesome
 - telefunc (but only in the adding-cloud-functions branch)
 - vite
+- obs to record the video
 
 ### Shout out
 
