@@ -125,7 +125,7 @@ const MovieList = ({ searchQuery, currentSort, movieDBPageNumber, setMovieDBPage
                     })}
                 </section>
                 <div className="loadMoreContainer">
-                    {loading ? <div className="loading">Loading...</div> : null}
+                    {loading ? <div className="loading" aria-label='loading'></div> : null}
                     {/* increments the page number when load More is clicked */}
                     {/* maybe this should be new function call incrementmoviedb */}
                     <button className="loadMore" onClick={() => { setMovieDBPageNumber(movieDBPageNumber + 1) }}>Load More</button>

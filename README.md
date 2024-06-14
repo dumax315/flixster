@@ -86,18 +86,18 @@ Give a shout out to somebody from your cohort that especially helped you during 
 |Watched Checkbox|1 hour|6:40 pm 6/11|8:25||
 |Favorite Button|||see above|
 |Sidebar|2 hours| 7:40am 6/12|1:39 pm 6/12|
-|add filters||||
-|Use serverless functions to querry db||||
-|swithc like and watched buttons to imgs||||
-|make loading a gif||||
-|figure out why prettier doesn't work on code-fb||||
-|only add modals to dom when needed||||
+|add filters|||Done|
+|Use serverless functions to querry db|||Done - see adding cloud function branch|
+|swithc like and watched buttons to imgs|||Done|
+|only add modals to dom when needed|||Done|
+|make iframe not take up space if no vid yet|||Done|
+|invistagate why components folder is red in folder explore (vscode)||| No longer red, reason unknown|
+| evaulate whether liked and watched should remain properties of Movie|||Done (removed from movie)|
+|style filterAndSearch|||Done|
+|replace setStates that use the state with fucitions that have prev|||Done|
+|add images for null image|||Done|
+|always show heart on mobile|||Done|
+|make loading a gif|15 min|8:15am 6/14|8:25|
 |reevaluate component file system organization||||
-|make iframe not take up space if no vid yet||||
-|invistagate why components folder is red in folder explore (vscode)||||
-| evaulate whether liked and watched should remain properties of Movie||||
-|style filterAndSearch||||
 |move dialog close button and make bg clickable||||
-|replace setStates that use the state with fucitions that have prev||||
-|add images for null image|
-|always show heart on mobile|
+|figure out why prettier doesn't work on code-fb||||
