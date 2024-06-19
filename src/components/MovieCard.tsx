@@ -49,8 +49,8 @@ const MovieCard = ({ movie, toggleUserData, liked, watched, alwaysShowLike = fal
                     } />
 
                     <div className={'togglelistButtons ' + (alwaysShowLike ? "showButtonsAlways " : "") + (hideButtons ? "hiddenButton " : "")}>
-                        <button style={{marginBottom:".4em"}} className='toggleButton' onClickCapture={toggleLiked}><img className="toggleButtonImg" src={liked ? "/heart-filled.svg" : "/heart-outline.svg"}></img></button>
-                        <button className='toggleButton' onClickCapture={toggleWatched}><img className="toggleButtonImg" src={watched ? "/tv-checked.svg" : "/tv-unchecked.svg"}></img></button>
+                        <button aria-label={liked ? "unlike" : "like"} style={{marginBottom:".4em"}} className='toggleButton' onClickCapture={toggleLiked}><img alt="like button image" className="toggleButtonImg" src={liked ? "/heart-filled.svg" : "/heart-outline.svg"}></img></button>
+                        <button aria-label={watched ? "unWatched" : "watched"} className='toggleButton' onClickCapture={toggleWatched}><img alt="watched button image" className="toggleButtonImg" src={watched ? "/tv-checked.svg" : "/tv-unchecked.svg"}></img></button>
                     </div>
                 </figure>
                 <p className='MovieTitle'>{movie.title}</p>
